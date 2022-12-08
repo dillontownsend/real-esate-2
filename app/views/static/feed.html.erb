@@ -182,7 +182,8 @@
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
                                         <li class="special-link">
-                                            <a href="add-listing.html">Add Listing</a>
+                                            <!--<a href="add-listing.html">Add Listing</a>-->
+                                            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
                                         </li>
                                     </ul>
                                 </div>
