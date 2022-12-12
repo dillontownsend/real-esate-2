@@ -888,6 +888,7 @@
 
 				const productImage = document.createElement('img')
 				productImage.src = result.photos[0]
+				productImage.referrerPolicy = 'no-referrer'
 				productImage.style.width = '100%'
 				productImage.style.aspectRatio = '328 / 251'
 
