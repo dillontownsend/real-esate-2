@@ -537,7 +537,7 @@
 				<!-- ltn__slide-item -->
 				<div
 					class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-4 bg-image bg-overlay-theme-black-60"
-					data-bs-bg="img/slider/11.jpg"
+					data-bs-bg="https://cdn.tollbrothers.com/communities/13198/images-resized/Pomona-Executive_Fariholm-Mediterranean_32_Front-Elevation-2_920.jpg"
 				>
 					<div class="ltn__slide-item-inner text-left">
 						<div class="container">
@@ -566,47 +566,31 @@
 															class="ltn__car-dealer-form-box row"
 														>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6"
 															>
-																<select class="nice-select">
+																<select class="nice-select" id="propertyType">
 																	<option>Property Type</option>
+																	<option>Single Family</option>
 																	<option>Apartment</option>
-																	<option>Co-op</option>
+																	<option>Townhouse</option>
 																	<option>Condo</option>
-																	<option>Single Family Home</option>
+																	<option>Lot</option>
 																</select>
 															</div>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6"
 															>
-																<select class="nice-select">
+																<select class="nice-select" id="location">
 																	<option>Location</option>
-																	<option>chicago</option>
-																	<option>London</option>
-																	<option>Los Angeles</option>
-																	<option>New York</option>
-																	<option>New Jersey</option>
+																	<option>Houston</option>
+																	<option>Porter</option>
 																</select>
 															</div>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-3 col-md-6"
 															>
-																<select class="nice-select">
-																	<option>Sub Location</option>
-																	<option>Bayonne</option>
-																	<option>Greenville</option>
-																	<option>Manhattan</option>
-																	<option>Queens</option>
-																	<option>The Heights</option>
-																	<option>Upper East Side</option>
-																	<option>West Side</option>
-																</select>
-															</div>
-															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-ring col-lg-4 col-md-6"
-															>
-																<select class="nice-select">
-																	<option>Bedrooms</option>
+																<select class="nice-select" id="bathrooms">
+																	<option>Bathrooms</option>
 																	<option>1</option>
 																	<option>2</option>
 																	<option>3</option>
@@ -614,7 +598,18 @@
 																</select>
 															</div>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-ring col-lg-3 col-md-6"
+															>
+																<select class="nice-select" id="bedrooms">
+																	<option>Bedrooms</option>
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																	<option>4</option>
+																</select>
+															</div>
+															<!-- <div
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-3 col-md-6"
 															>
 																<div
 																	class="input-item input-item-name ltn__custom-icon"
@@ -625,9 +620,9 @@
 																		placeholder="Min size (in sqft)"
 																	/>
 																</div>
-															</div>
-															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-4 col-md-6"
+															</div> -->
+															<!-- <div
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-3 col-md-6"
 															>
 																<div
 																	class="input-item input-item-name ltn__custom-icon"
@@ -638,7 +633,7 @@
 																		placeholder="Max size (in sqft)"
 																	/>
 																</div>
-															</div>
+															</div> -->
 															<div class="car-price-filter-range col-lg-12">
 																<div class="btn-wrapper text-center">
 																	<button
@@ -665,47 +660,31 @@
 															class="ltn__car-dealer-form-box row"
 														>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6"
 															>
-																<select class="nice-select">
+																<select class="nice-select" id="propertyType">
 																	<option>Property Type</option>
-																	<option>Apartment</option>
-																	<option>Co-op</option>
-																	<option>Condo</option>
 																	<option>Single Family Home</option>
+																	<option>Apartment</option>
+																	<option>Townhouse</option>
+																	<option>Condo</option>
+																	<option>Lot</option>
 																</select>
 															</div>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6"
 															>
-																<select class="nice-select">
+																<select class="nice-select" id="location">
 																	<option>Location</option>
-																	<option>chicago</option>
-																	<option>London</option>
-																	<option>Los Angeles</option>
-																	<option>New York</option>
-																	<option>New Jersey</option>
+																	<option>Houston</option>
+																	<option>Porter</option>
 																</select>
 															</div>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-3 col-md-6"
 															>
-																<select class="nice-select">
-																	<option>Sub Location</option>
-																	<option>Bayonne</option>
-																	<option>Greenville</option>
-																	<option>Manhattan</option>
-																	<option>Queens</option>
-																	<option>The Heights</option>
-																	<option>Upper East Side</option>
-																	<option>West Side</option>
-																</select>
-															</div>
-															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-ring col-lg-4 col-md-6"
-															>
-																<select class="nice-select">
-																	<option>Bedrooms</option>
+																<select class="nice-select" id="bathrooms">
+																	<option>Bathrooms</option>
 																	<option>1</option>
 																	<option>2</option>
 																	<option>3</option>
@@ -713,7 +692,18 @@
 																</select>
 															</div>
 															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-4 col-md-6"
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-ring col-lg-3 col-md-6"
+															>
+																<select class="nice-select" id="bedrooms">
+																	<option>Bedrooms</option>
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																	<option>4</option>
+																</select>
+															</div>
+															<!-- <div
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-3 col-md-6"
 															>
 																<div
 																	class="input-item input-item-name ltn__custom-icon"
@@ -724,9 +714,9 @@
 																		placeholder="Min size (in sqft)"
 																	/>
 																</div>
-															</div>
-															<div
-																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-4 col-md-6"
+															</div> -->
+															<!-- <div
+																class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-cog col-lg-3 col-md-6"
 															>
 																<div
 																	class="input-item input-item-name ltn__custom-icon"
@@ -737,7 +727,7 @@
 																		placeholder="Max size (in sqft)"
 																	/>
 																</div>
-															</div>
+															</div> -->
 															<div class="car-price-filter-range col-lg-12">
 																<div class="btn-wrapper text-center">
 																	<button
@@ -839,6 +829,7 @@
 	<script src="../js/main.js"></script>
 
 	<script>
+		let zillowData
 		/* list container node */
 		const resultsList = document.getElementById('resultsList')
 
@@ -852,7 +843,7 @@
 			return await res.json()
 		}
 
-		getInitialData().then(async (data) => {
+		const addDataToDOM = (data) => {
 			const options = {
 				method: 'GET',
 				headers: {
@@ -1016,10 +1007,66 @@
 					})
 					.catch(console.log)
 			})
+		}
+
+		getInitialData().then((data) => {
+			zillowData = data
+			console.log(data)
+			addDataToDOM(zillowData)
 		})
 
-		document.getElementById('filterButton').addEventListener('click', () => {
-			console.log('hello world')
-		})
+		const filterData = () => {
+			function removeAllChildNodes(parent) {
+				while (parent.firstChild) {
+					parent.removeChild(parent.firstChild)
+				}
+			}
+
+			removeAllChildNodes(resultsList)
+
+			filteredData = zillowData.filter((result) => {
+				shouldReturn = true
+
+				const propertyType =
+					document.getElementById('propertyType').value === 'Property Type'
+						? null
+						: document.getElementById('propertyType').value
+
+				const location =
+					document.getElementById('location').value === 'Location'
+						? null
+						: document.getElementById('location').value
+
+				const bathrooms =
+					document.getElementById('bathrooms').value === 'Bathrooms'
+						? null
+						: document.getElementById('bathrooms').value
+
+				const bedrooms =
+					document.getElementById('bedrooms').value === 'Bedrooms'
+						? null
+						: document.getElementById('bedrooms').value
+
+				if (propertyType)
+					shouldReturn =
+						result.homeType === propertyType.replaceAll(' ', '_').toUpperCase()
+
+				if (shouldReturn && location)
+					shouldReturn = result.address.city === location
+
+				if (shouldReturn && bathrooms)
+					shouldReturn = result.bathrooms === parseInt(bathrooms)
+
+				if (shouldReturn && bedrooms)
+					shouldReturn = result.bedrooms === parseInt(bedrooms)
+
+				return shouldReturn
+			})
+			addDataToDOM(filteredData)
+		}
+
+		document
+			.getElementById('filterButton')
+			.addEventListener('click', filterData)
 	</script>
 </body>
