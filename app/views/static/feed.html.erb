@@ -551,13 +551,7 @@
 														class="active show"
 														data-bs-toggle="tab"
 														href="#ltn__form_tab_1_1"
-														><i class="fas fa-home"></i>Rent Home</a
-													>
-													<a
-														data-bs-toggle="tab"
-														href="#ltn__form_tab_1_2"
-														class=""
-														><i class="fas fa-home"></i>Sale Home</a
+														><i class="fas fa-home"></i>Buy Home</a
 													>
 												</div>
 											</div>
@@ -567,7 +561,7 @@
 													id="ltn__form_tab_1_1"
 												>
 													<div class="car-dealer-form-inner">
-														<form
+														<div
 															action="#"
 															class="ltn__car-dealer-form-box row"
 														>
@@ -646,33 +640,27 @@
 																</div>
 															</div>
 															<div class="car-price-filter-range col-lg-12">
-																<div class="price_filter">
-																	<div class="price_slider_amount">
-																		<input type="submit" value="Your range:" />
-																		<input
-																			type="text"
-																			class="amount"
-																			name="price"
-																			placeholder="Add Your Price"
-																		/>
-																	</div>
-																	<div class="slider-range"></div>
-																</div>
 																<div class="btn-wrapper text-center">
-																	<!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
-																	<a
+																	<button
+																		type="submit"
+																		id="filterButton"
+																		class="btn theme-btn-1 btn-effect-1 text-uppercase"
+																	>
+																		Search Inventory
+																	</button>
+																	<!-- <a
 																		href="shop-right-sidebar.html"
 																		class="btn theme-btn-1 btn-effect-1 text-uppercase"
 																		>Search Inventory</a
-																	>
+																	> -->
 																</div>
 															</div>
-														</form>
+														</div>
 													</div>
 												</div>
 												<div class="tab-pane fade" id="ltn__form_tab_1_2">
 													<div class="car-dealer-form-inner">
-														<form
+														<div
 															action="#"
 															class="ltn__car-dealer-form-box row"
 														>
@@ -751,28 +739,22 @@
 																</div>
 															</div>
 															<div class="car-price-filter-range col-lg-12">
-																<div class="price_filter">
-																	<div class="price_slider_amount">
-																		<input type="submit" value="Your range:" />
-																		<input
-																			type="text"
-																			class="amount"
-																			name="price"
-																			placeholder="Add Your Price"
-																		/>
-																	</div>
-																	<div class="slider-range"></div>
-																</div>
 																<div class="btn-wrapper text-center">
-																	<!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
-																	<a
+																	<button
+																		type="submit"
+																		id="filterButton"
+																		class="btn theme-btn-1 btn-effect-1 text-uppercase"
+																	>
+																		Search Inventory
+																	</button>
+																	<!-- <a
 																		href="shop-right-sidebar.html"
 																		class="btn theme-btn-1 btn-effect-1 text-uppercase"
 																		>Search Inventory</a
-																	>
+																	> -->
 																</div>
 															</div>
-														</form>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -857,6 +839,9 @@
 	<script src="../js/main.js"></script>
 
 	<script>
+		/* list container node */
+		const resultsList = document.getElementById('resultsList')
+
 		const getInitialData = async () => {
 			/* fetch data */
 			const zillowURI =
@@ -876,9 +861,6 @@
 					'X-RapidAPI-Host': 'walk-score.p.rapidapi.com',
 				},
 			}
-
-			/* list container node */
-			const resultsList = document.getElementById('resultsList')
 
 			data.forEach(async (result) => {
 				const walkScoreURI = `https://walk-score.p.rapidapi.com/score?lat=${result.latitude}&address=${result.address.streetAddress}&wsapikey=ffd1c56f9abcf84872116b4cc2dfcf31&lon=${result.longitude}&format=json`
@@ -1034,6 +1016,10 @@
 					})
 					.catch(console.log)
 			})
+		})
+
+		document.getElementById('filterButton').addEventListener('click', () => {
+			console.log('hello world')
 		})
 	</script>
 </body>
