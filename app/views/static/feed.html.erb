@@ -867,136 +867,172 @@
 			return await res.json()
 		}
 
-		getInitialData().then((data) => {
+		getInitialData().then(async (data) => {
+			const options = {
+				method: 'GET',
+				headers: {
+					'X-RapidAPI-Key':
+						'3fddde8351msh7a6c4aa7290f1cbp17ac8ejsn3b5743625c0c',
+					'X-RapidAPI-Host': 'walk-score.p.rapidapi.com',
+				},
+			}
+
 			/* list container node */
 			const resultsList = document.getElementById('resultsList')
 
-			data.forEach((result) => {
-				/* creating DOM elements for card */
-				const outerParentDiv = document.createElement('div')
-				outerParentDiv.className = 'col-xl-4 col-sm-6 col-12'
+			data.forEach(async (result) => {
+				const walkScoreURI = `https://walk-score.p.rapidapi.com/score?lat=${result.latitude}&address=${result.address.streetAddress}&wsapikey=ffd1c56f9abcf84872116b4cc2dfcf31&lon=${result.longitude}&format=json`
 
-				const innerParentDiv = document.createElement('div')
-				innerParentDiv.className =
-					'ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---'
+				const res = await fetch(walkScoreURI, options)
 
-				const productImageDiv = document.createElement('div')
-				productImageDiv.className = 'product-img'
+				res
+					.json()
+					.then((walkData) => {
+						const walkScore = walkData.walkscore
 
-				const productDetails = document.createElement('a')
-				productDetails.href = '#'
+						/* creating DOM elements for card */
+						const outerParentDiv = document.createElement('div')
+						outerParentDiv.className = 'col-xl-4 col-sm-6 col-12'
 
-				const productImage = document.createElement('img')
-				productImage.src = result.photos[0]
-				productImage.referrerPolicy = 'no-referrer'
-				productImage.style.width = '100%'
-				productImage.style.aspectRatio = '328 / 251'
+						const innerParentDiv = document.createElement('div')
+						innerParentDiv.className =
+							'ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---'
 
-				const productInfo = document.createElement('div')
-				productInfo.className = 'product-info'
+						const productImageDiv = document.createElement('div')
+						productImageDiv.className = 'product-img'
 
-				const productBadge = document.createElement('div')
-				productBadge.className = 'product-badge'
+						const productDetails = document.createElement('a')
+						productDetails.href = '#'
 
-				const badgeUl = document.createElement('ul')
+						const productImage = document.createElement('img')
+						productImage.src = result.photos[0]
+						productImage.referrerPolicy = 'no-referrer'
+						productImage.style.width = '100%'
+						productImage.style.aspectRatio = '328 / 251'
 
-				const badgeLi = document.createElement('li')
-				/* this might be a typo check back later */
-				badgeLi.className = 'sale-badg'
-				badgeLi.textContent = result.homeStatus.replaceAll('_', ' ')
+						const productInfo = document.createElement('div')
+						productInfo.className = 'product-info'
 
-				const productTitle = document.createElement('h2')
-				productTitle.className = 'product-title'
+						const productBadge = document.createElement('div')
+						productBadge.className = 'product-badge'
 
-				const productTitleLink = document.createElement('a')
-				productTitleLink.href = '#'
-				productTitleLink.textContent = result.homeType.replaceAll('_', ' ')
+						const badgeUl = document.createElement('ul')
 
-				const productImageLocation = document.createElement('div')
-				productImageLocation.className = 'product-img-location'
+						const badgeLi = document.createElement('li')
+						/* this might be a typo check back later */
+						badgeLi.className = 'sale-badg'
+						badgeLi.textContent = result.homeStatus.replaceAll('_', ' ')
 
-				const productImageLocationUl = document.createElement('ul')
+						const productTitle = document.createElement('h2')
+						productTitle.className = 'product-title'
 
-				const productImageLocationLi = document.createElement('li')
+						const productTitleLink = document.createElement('a')
+						productTitleLink.href = '#'
+						productTitleLink.textContent = result.homeType.replaceAll('_', ' ')
 
-				const productImageLocationA = document.createElement('a')
-				productImageLocationA.href = '#'
+						const productImageLocation = document.createElement('div')
+						productImageLocation.className = 'product-img-location'
 
-				const productImageLocationI = document.createElement('I')
-				productImageLocationI.className = 'flaticon-pin'
+						const productImageLocationUl = document.createElement('ul')
 
-				const streetAddress = document.createTextNode(
-					` ${result.address.streetAddress}`
-				)
+						const productImageLocationLi = document.createElement('li')
 
-				const listItemUl = document.createElement('ul')
-				listItemUl.className =
-					'ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief'
+						const productImageLocationA = document.createElement('a')
+						productImageLocationA.href = '#'
 
-				const listItemLi1 = document.createElement('li')
+						const productImageLocationI = document.createElement('I')
+						productImageLocationI.className = 'flaticon-pin'
 
-				const listItemSpan1 = document.createElement('span')
-				listItemSpan1.textContent = `${result.bedrooms} `
+						const streetAddress = document.createTextNode(
+							` ${result.address.streetAddress}`
+						)
 
-				const listItemText1 = document.createTextNode('Bed')
+						const listItemUl = document.createElement('ul')
+						listItemUl.className =
+							'ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief'
 
-				const listItemLi2 = document.createElement('li')
+						const listItemLi1 = document.createElement('li')
 
-				const listItemSpan2 = document.createElement('span')
-				listItemSpan2.textContent = `${result.bathrooms} `
+						const listItemSpan1 = document.createElement('span')
+						listItemSpan1.textContent = `${result.bedrooms} `
 
-				const listItemText2 = document.createTextNode('Bath')
+						const listItemText1 = document.createTextNode('Bed')
 
-				const listItemLi3 = document.createElement('li')
+						const listItemLi2 = document.createElement('li')
 
-				const listItemSpan3 = document.createElement('span')
-				listItemSpan3.textContent = `${result.livingArea} `
+						const listItemSpan2 = document.createElement('span')
+						listItemSpan2.textContent = `${result.bathrooms} `
 
-				const listItemText3 = document.createTextNode('Square Ft')
+						const listItemText2 = document.createTextNode('Bath')
 
-				const productInfoBottom = document.createElement('div')
-				productInfoBottom.className = 'product-info-bottom'
+						const listItemLi3 = document.createElement('li')
 
-				const productPrice = document.createElement('div')
-				productPrice.className = 'product-price'
+						const listItemSpan3 = document.createElement('span')
+						listItemSpan3.textContent = `${result.livingArea} `
 
-				const productPriceSpan = document.createElement('span')
-				productPriceSpan.textContent = `$${result.price.toLocaleString()}`
+						const listItemText3 = document.createTextNode('Square Ft')
 
-				/* appending created elements to the DOM */
-				resultsList.appendChild(outerParentDiv).appendChild(innerParentDiv)
+						const listItemLi4 = document.createElement('li')
 
-				innerParentDiv
-					.appendChild(productImageDiv)
-					.appendChild(productDetails)
-					.appendChild(productImage)
+						const listItemSpan4 = document.createElement('span')
+						listItemSpan4.textContent = `${walkScore} `
 
-				innerParentDiv.appendChild(productInfo)
+						const listItemText4 = document.createTextNode('Walk Score')
 
-				productInfo
-					.appendChild(productBadge)
-					.appendChild(badgeUl)
-					.appendChild(badgeLi)
+						const productInfoBottom = document.createElement('div')
+						productInfoBottom.className = 'product-info-bottom'
 
-				productInfo.appendChild(productTitle).appendChild(productTitleLink)
+						const productPrice = document.createElement('div')
+						productPrice.className = 'product-price'
 
-				productInfo
-					.appendChild(productImageLocation)
-					.appendChild(productImageLocationUl)
-					.appendChild(productImageLocationLi)
-					.appendChild(productImageLocationA)
-					.append(productImageLocationI, streetAddress)
+						const productPriceSpan = document.createElement('span')
+						productPriceSpan.textContent = `$${result.price.toLocaleString()}`
 
-				productInfo.appendChild(listItemUl)
+						/* appending created elements to the DOM */
+						resultsList.appendChild(outerParentDiv).appendChild(innerParentDiv)
 
-				listItemUl.appendChild(listItemLi1).append(listItemSpan1, listItemText1)
-				listItemUl.appendChild(listItemLi2).append(listItemSpan2, listItemText2)
-				listItemUl.appendChild(listItemLi3).append(listItemSpan3, listItemText3)
+						innerParentDiv
+							.appendChild(productImageDiv)
+							.appendChild(productDetails)
+							.appendChild(productImage)
 
-				innerParentDiv
-					.appendChild(productInfoBottom)
-					.appendChild(productPrice)
-					.appendChild(productPriceSpan)
+						innerParentDiv.appendChild(productInfo)
+
+						productInfo
+							.appendChild(productBadge)
+							.appendChild(badgeUl)
+							.appendChild(badgeLi)
+
+						productInfo.appendChild(productTitle).appendChild(productTitleLink)
+
+						productInfo
+							.appendChild(productImageLocation)
+							.appendChild(productImageLocationUl)
+							.appendChild(productImageLocationLi)
+							.appendChild(productImageLocationA)
+							.append(productImageLocationI, streetAddress)
+
+						productInfo.appendChild(listItemUl)
+
+						listItemUl
+							.appendChild(listItemLi1)
+							.append(listItemSpan1, listItemText1)
+						listItemUl
+							.appendChild(listItemLi2)
+							.append(listItemSpan2, listItemText2)
+						listItemUl
+							.appendChild(listItemLi3)
+							.append(listItemSpan3, listItemText3)
+						listItemUl
+							.appendChild(listItemLi4)
+							.append(listItemSpan4, listItemText4)
+
+						innerParentDiv
+							.appendChild(productInfoBottom)
+							.appendChild(productPrice)
+							.appendChild(productPriceSpan)
+					})
+					.catch(console.log)
 			})
 		})
 	</script>
